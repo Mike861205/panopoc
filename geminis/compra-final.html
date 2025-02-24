@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito - Gemini's</title>
+  <!-- Bootstrap 5 CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+  <!-- Bootstrap Icons (para usar bi-cart, bi-trash, etc.) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  >
+
+  <style>
+    /* =========================
+       ESTILOS PERSONALIZADOS
+       ========================= */
+    body {
+      background-color: #f8f9fa;
+    }
+    /* Título principal estilo Siroko */
+    .cart-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .countdown {
+      color: #d9534f; /* rojo */
+      font-weight: bold;
+    }
+    /* Sección de producto en el carrito */
+    .cart-product {
+      border-bottom: 1px solid #dee2e6;
+      padding: 20px 0;
+    }
+    .cart-product:last-child {
+      border-bottom: none;
+    }
+    /* Imagen del producto (más grande) */
+    .product-image img {
+      width: 250px; /* Ajusta si quieres más o menos grande */
+      max-width: 100%;
+      border: 1px solid #dee2e6;
+    }
+    /* Botón verde "COMPRAR" */
+    .btn-buy {
+      background-color: #4CAF50;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+    }
+    .btn-buy:hover {
+      background-color: #45a049;
+    }
+    /* Botones de cantidad (+ / -) */
+    .quantity-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .quantity-controls button {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+    .quantity-controls input {
+      width: 40px;
+      text-align: center;
+    }
+    /* Productos relacionados (tarjeta vertical con imagen arriba) */
+    .related-products .card {
+      border: none;
+      transition: transform 0.2s;
+      text-align: center; /* Centra el contenido */
+    }
+    .related-products .card:hover {
+      transform: scale(1.02);
+    }
+    /* Imagen más pequeña y centrada */
+    .related-products .card-img-top {
+      width: 150px; 
+      height: auto;
+      margin: 0 auto; /* Centra la imagen horizontalmente */
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+  <!-- Top Info Bar (similar a Siroko) -->
+  <div class="top-bar bg-white text-dark small py-2">
+    <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
+      <div class="mb-0">
+        Envío <strong>GRATIS</strong> en pedidos superiores a <strong>$2,750.00</strong>.
+        Devoluciones en monedero GEMINIS <strong>GRATIS</strong>
+      </div>
+      <a href="#" class="text-dark text-decoration-underline d-none d-md-inline">
+        <i class="bi bi-gift fs-5"></i> 
+        Tarjeta regalo digital
+      </a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="index.html">Geminis</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-between align-items-center"
+        id="navbarNav"
+      >
+        <!-- Menú principal -->
+        <ul class="navbar-nav mx-auto">
+          <!-- HOMBRE -->
+          <li class="nav-item dropdown position-static">
+            <a
+              class="nav-link dropdown-toggle text-uppercase mx-3"
+              href="#"
+              id="hombreDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Hombre
+            </a>
+            <!-- Mega-menú -->
+            <div
+              class="dropdown-menu w-100 p-3 shadow-lg"
+              aria-labelledby="hombreDropdown"
+            >
+              <div class="row text-center">
+                <!-- Ciclismo -->
+                <div class="col-auto mb-3">
+                  <a href="#" class="dropdown-item">
+                    <i class="bi bi-bicycle fs-1"></i>
+                    <p class="mb-0">Ciclismo</p>
+                  </a>
+                </div>
+                <!-- Esquí & Snowboard -->
+                <div class="col-auto mb-3">
+                  <a href="#" class="dropdown-item">
+                    <i class="bi bi-snow fs-1"></i>
+                    <p class="mb-0">Esquí & Snowboard</p>
+                  </a>
+                </div>
+                <!-- Más categorías... -->
+              </div>
+            </div>
+          </li>
+          <!-- MUJER -->
+          <li class="nav-item dropdown position-static">
+            <a
+              class="nav-link dropdown-toggle text-uppercase mx-3"
+              href="#"
+              id="mujerDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Mujer
+            </a>
+            <!-- Mega-menú simple -->
+            <div
+              class="dropdown-menu w-100 p-3 shadow-lg"
+              aria-labelledby="mujerDropdown"
+            >
+              <div class="row text-center">
+                <div class="col-auto mb-3">
+                  <a href="#" class="dropdown-item">
+                    <i class="bi bi-bicycle fs-1"></i>
+                    <p class="mb-0">Ciclismo</p>
+                  </a>
+                </div>
+                <!-- Más categorías... -->
+              </div>
+            </div>
+          </li>
+          <!-- KIDS -->
+          <li class="nav-item dropdown position-static">
+            <a
+              class="nav-link dropdown-toggle text-uppercase mx-3"
+              href="#"
+              id="kidsDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Kids
+            </a>
+            <div
+              class="dropdown-menu w-100 p-3 shadow-lg"
+              aria-labelledby="kidsDropdown"
+            >
+              <div class="row text-center">
+                <div class="col-auto mb-3">
+                  <a href="#" class="dropdown-item">
+                    <i class="bi bi-bicycle fs-1"></i>
+                    <p class="mb-0">Ciclismo</p>
+                  </a>
+                </div>
+                <!-- Más categorías... -->
+              </div>
+            </div>
+          </li>
+        </ul><!-- /ul.navbar-nav -->
+
+        <!-- Botón Únete e Íconos a la derecha -->
+        <div class="d-flex align-items-center">
+          <a class="btn btn-outline-light px-3 py-1 me-3 text-uppercase" href="registro.html">Únete a Patopoc</a>
+          <a class="nav-link text-white me-2" href="buscador.html"><i class="bi bi-search"></i></a>
+          <a class="nav-link text-white me-2 position-relative" href="eshop.html">
+            <i class="bi bi-cart"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              3
+            </span>
+          </a>
+          <a class="nav-link text-white me-2" href="sesion.html"><i class="bi bi-person"></i></a>
+        </div>
+      </div> <!-- /.collapse.navbar-collapse -->
+    </div> <!-- /.container -->
+  </nav> <!-- /nav -->
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container my-4">
+
+    <!-- ENCABEZADO: Carrito 1 Producto + Cuenta regresiva -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <h4 class="cart-title">
+          Carrito 1 Producto
+          <small class="text-muted ms-2">
+            (Te reservamos el stock durante 
+            <span id="countdown" class="countdown">00:00</span>)
+          </small>
+        </h4>
+      </div>
+    </div>
+
+    <!-- FILA PRINCIPAL: (Columna izquierda) Productos + Relacionados  |  (Columna derecha) Resumen -->
+    <div class="row">
+      
+      <!-- COLUMNA IZQUIERDA (col-md-8): Producto principal + Productos relacionados -->
+      <div class="col-md-8">
+        <!-- Producto 1 -->
+        <div class="row cart-product">
+          <!-- Imagen del producto (col-4) -->
+          <div class="col-4 product-image d-flex align-items-center">
+            <!-- Reemplaza con tu imagen real (ej: "sxk-pro-arden.jpg") -->
+            <img 
+              src="assets/images/10.jpg" 
+              alt="Producto principal"
+            >
+          </div>
+          <!-- Detalles del producto (col-8) -->
+          <div class="col-8 d-flex flex-column justify-content-center">
+            <!-- Nombre a la izquierda, precios a la derecha -->
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <strong>SXK PRO ARDEN (S)</strong>
+              <div>
+                <!-- Precio tachado y precio final -->
+                <del class="text-muted me-2">$1,999.00</del>
+                <span class="text-danger fw-bold">$1,870.00</span>
+              </div>
+            </div>
+            <!-- Solo Cantidad y Eliminar (sin talla) -->
+            <div class="mb-2">
+              <label class="me-2">Cantidad:</label>
+              <div class="quantity-controls">
+                <button class="btnMinus">-</button>
+                <input type="text" class="form-control p-0" value="1" readonly>
+                <button class="btnPlus">+</button>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-outline-danger btn-sm">
+                <i class="bi bi-trash"></i> Eliminar
+              </button>
+            </div>
+          </div>
+        </div><!-- Fin row cart-product -->
+
+        <!-- SECCIÓN: Productos que te pueden interesar (debajo del producto) -->
+        <div class="row mt-5">
+          <h5>Productos que te pueden interesar</h5>
+          <div class="col-12 related-products">
+            <!-- 4 productos en 4 columnas (verticales) -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mt-1">
+              <!-- Producto relacionado 1 (11.jpg) -->
+              <div class="col">
+                <div class="card">
+                  <img 
+                    src="assets/images/11.jpg" 
+                    class="card-img-top" 
+                    alt="Producto 1"
+                  >
+                  <div class="card-body">
+                    <h6 class="card-title mb-1">Producto 1</h6>
+                    <p class="card-text mb-1">$900.00</p>
+                    <!-- Botones: Seleccionar Talla (gris) + Añadir (negro) -->
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                      <button class="btn btn-outline-secondary btn-sm">Seleccionar Talla</button>
+                      <button class="btn btn-dark btn-sm">Añadir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Producto relacionado 2 (10.jpg) -->
+              <div class="col">
+                <div class="card">
+                  <img 
+                    src="assets/images/10.jpg" 
+                    class="card-img-top" 
+                    alt="Producto 2"
+                  >
+                  <div class="card-body">
+                    <h6 class="card-title mb-1">Producto 2</h6>
+                    <p class="card-text mb-1">$1,050.00</p>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                      <button class="btn btn-outline-secondary btn-sm">Seleccionar Talla</button>
+                      <button class="btn btn-dark btn-sm">Añadir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Producto relacionado 3 (12.jpg) -->
+              <div class="col">
+                <div class="card">
+                  <img 
+                    src="assets/images/12.jpg" 
+                    class="card-img-top" 
+                    alt="Producto 3"
+                  >
+                  <div class="card-body">
+                    <h6 class="card-title mb-1">Producto 3</h6>
+                    <p class="card-text mb-1">$1,200.00</p>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                      <button class="btn btn-outline-secondary btn-sm">Seleccionar Talla</button>
+                      <button class="btn btn-dark btn-sm">Añadir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Producto relacionado 4 (10.jpg) -->
+              <div class="col">
+                <div class="card">
+                  <img 
+                    src="assets/images/10.jpg" 
+                    class="card-img-top" 
+                    alt="Producto 4"
+                  >
+                  <div class="card-body">
+                    <h6 class="card-title mb-1">Producto 4</h6>
+                    <p class="card-text mb-1">$1,350.00</p>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                      <button class="btn btn-outline-secondary btn-sm">Seleccionar Talla</button>
+                      <button class="btn btn-dark btn-sm">Añadir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- row -->
+          </div>
+        </div><!-- fin row de productos relacionados -->
+
+      </div><!-- Fin columna izquierda (col-md-8) -->
+
+      <!-- COLUMNA DERECHA (col-md-4): Resumen del pedido -->
+      <div class="col-md-4">
+        <div class="bg-white border p-3">
+          <h5 class="mb-3">Resumen del pedido</h5>
+          <!-- Subtotal -->
+          <div class="d-flex justify-content-between mb-2">
+            <span>Subtotal</span>
+            <span>$1,870.00</span>
+          </div>
+          <!-- Envío -->
+          <div class="d-flex justify-content-between mb-2">
+            <span>Envío</span>
+            <span>$0.00</span>
+          </div>
+          <!-- Total -->
+          <div class="d-flex justify-content-between mb-3">
+            <span>Total</span>
+            <strong>$1,870.00</strong>
+          </div>
+          <!-- Botón de comprar -->
+          <button 
+            class="btn btn-buy w-100 mb-3 d-flex align-items-center justify-content-center"
+            class="btn btn-buy w-100" 
+  onclick="location.href='checkout.html';"
+          >
+            <i class="bi bi-cart me-2"></i> COMPRAR
+          </button>
+          <!-- Código promocional -->
+          <label for="promoCode" class="form-label">¿Tienes un código promocional?</label>
+          <div class="input-group mb-3">
+            <input 
+              type="text" 
+              id="promoCode" 
+              class="form-control" 
+              placeholder="Código"
+            >
+            <button class="btn btn-secondary" type="button">
+              Aplicar
+            </button>
+          </div>
+
+          <!-- Texto adicional: devoluciones GRATIS -->
+          <div class="mb-3 text-muted" style="font-size: 0.875rem;">
+            Las devoluciones por un cambio de talla son totalmente GRATIS.
+          </div>
+
+          <!-- TEXTO ADICIONAL (Gastos de envío, Aduana, Términos) -->
+          <div class="text-muted" style="font-size: 0.875rem;">
+            <p>
+              <strong>Gastos de envío:</strong><br>
+              Los gastos de envío se calcularán en el siguiente paso<br>
+              ¡SIN PREOCUPACIONES! Gastos de Aduana INCLUÍDOS.
+            </p>
+            <p>
+              <strong>Términos y condiciones:</strong><br>
+              Al pulsar el botón de comprar estás aceptando los términos y condiciones de Siroko.
+            </p>
+          </div>
+        </div>
+      </div><!-- Fin columna derecha (col-md-4) -->
+
+    </div><!-- Fin row principal -->
+  </div><!-- Fin container -->
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <script>
+    /*
+      CUENTA REGRESIVA (ej. 12 minutos = 720 seg)
+      Ajusta el tiempo a lo que necesites
+    */
+    let totalSeconds = 12 * 60; // 12 minutos
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      countdownEl.textContent = 
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      } else {
+        countdownEl.textContent = "00:00";
+      }
+    }
+    setInterval(updateCountdown, 1000);
+
+    /*
+      BOTONES DE CANTIDAD (+ / -)
+      Podrías enlazar esto a tu lógica de carrito para recalcular el total.
+    */
+    const btnMinus = document.querySelector('.btnMinus');
+    const btnPlus = document.querySelector('.btnPlus');
+    const quantityInput = document.querySelector('.quantity-controls input');
+
+    btnMinus.addEventListener('click', () => {
+      let currentVal = parseInt(quantityInput.value, 10);
+      if (currentVal > 1) {
+        quantityInput.value = currentVal - 1;
+      }
+    });
+
+    btnPlus.addEventListener('click', () => {
+      let currentVal = parseInt(quantityInput.value, 10);
+      quantityInput.value = currentVal + 1;
+    });
+  </script>
+</body>
+</html>

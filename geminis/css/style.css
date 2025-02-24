@@ -1,0 +1,233 @@
+/* fondo inicial tarjeta de regalo */
+.top-bar {
+    background-color: #111; /* un tono diferente al #000 del nav */
+    color: #fff;
+    border-bottom: 1px solid #222; /* línea sutil */
+    font-size: 0.8rem;
+    letter-spacing: 0.02rem;
+  }
+  
+  .top-bar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .top-bar a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Navbar General */
+  .navbar {
+    background-color: #000; /* Fondo negro */
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+    margin-right: 1.5rem;
+    text-transform: uppercase;
+  }
+  .navbar-nav .nav-link:hover {
+    color: #f00;
+  }
+  .btn-outline-light {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .navbar .bi {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .navbar .bi:hover {
+    color: #f00;
+  }
+  .d-flex .nav-link {
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .dropdown-menu {
+    background-color: #333;
+    border: none;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-item {
+    color: #fff;
+  }
+  .dropdown-item:hover {
+    background-color: #444;
+  }
+  .dropdown-menu i {
+    color: #fff;
+  }
+  .dropdown-menu i:hover {
+    color: #f00;
+  }
+  .dropdown-menu p {
+    margin-top: 10px;
+  }
+  .nav-item.dropdown.position-static .dropdown-menu {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav-item.dropdown.position-static .dropdown-menu .row {
+    justify-content: center;
+  }
+  @media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  }
+  
+  /* ===================== Hero Section (fondo e imagen) ===================== */
+  .hero-section {
+    position: relative;
+    height: 70vh;
+    background-color: #000;
+    background-image: url("assets/images/ima20.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .hero-section.d-flex {
+    /* anula flex si deseas que tu .hero-section > div se posicione absolute */
+    display: block !important;
+  }
+  .hero-section > div {
+    position: absolute !important;
+    bottom: 2rem !important;
+    left: 2rem !important;
+    margin: 0 !important;
+    text-align: left !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 1;
+    color: #fff;
+  }
+  .hero-section > div h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-section > div p {
+    font-size: 1.2rem;
+  }
+  
+  /* ===================== Efectos en cards, etc. ===================== */
+  .card:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+  }
+  .badge.bg-danger {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  
+  /* =====================¿Eres una tienda y quieres ofrecer SIROKO a tus clientes? . ===================== */
+/* =========================================================
+   SECCIÓN ROSA "SIROKO CUSTOM" (FONDO + TEXTO)
+   ========================================================= */
+   .bg-pink {
+    position: relative;
+    background-color: #d81b60; /* Rosa base */
+    /* Si deseas usar imagen de fondo, descomenta y edita la ruta:
+    background-image: url("assets/images/bg-siroko.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    */
+    padding: 100px 0;  /* Aumenta altura del bloque */
+    text-align: center;
+  }
+  
+  .bg-pink::after {
+    /* Capa semitransparente opcional si usas imagen de fondo */
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(216, 27, 96, 0.6);
+    z-index: 1;
+  }
+  
+  /* Contenido por encima del pseudo-elemento */
+  .bg-pink .container.position-relative.text-white {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Títulos y texto dentro del bloque rosa */
+  .bg-pink h1 {
+    font-size: 3rem; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  
+  .bg-pink p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+  
+  /* =========================================================
+     BOTÓN GRIS "VISITAR BLOG" (FUERA DEL BLOQUE ROSA)
+     ========================================================= */
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    font-size: 1rem;
+    padding: 15px 30px; /* Botón más "robusto" */
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  /* =========================================================
+     BLOQUE INFERIOR (NEGRO + FRANJA AMARILLA + IMAGEN)
+     ========================================================= */
+  /* Fondo negro principal */
+  .bg-black {
+    background-color: #000;
+  }
+  
+  /* Franja amarilla izquierda */
+  .bg-warning {
+    background-color: #ffc107;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .bg-warning h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .bg-warning a.btn.btn-dark {
+    background-color: #000;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  /* Imagen a la derecha (col-md-6) para "cover" */
+  .col-md-6.p-0 img.img-fluid.w-100.h-auto {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* Descomenta si requieres forzar altura mínima:
+    min-height: 300px; 
+    */
+  }
+  

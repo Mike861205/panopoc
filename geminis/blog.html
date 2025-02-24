@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog - Estilo Siroko</title>
+  <!-- Bootstrap 4.5 CSS (CDN) -->
+  <link 
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  >
+  <!-- Font Awesome para íconos (lupita, etc.) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  >
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    /* Barra superior (blanca) */
+    .top-bar {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .top-bar a, 
+    .top-bar span {
+      color: #000;
+      font-size: 0.9rem;
+    }
+    .top-bar a:hover {
+      text-decoration: none;
+    }
+
+    /* Botón "Ir a la tienda" */
+    .btn-store {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      font-size: 0.9rem;
+      padding: 5px 10px;
+    }
+    .btn-store:hover {
+      opacity: 0.8;
+    }
+
+    /* Barra negra (menú principal) */
+    .main-nav {
+      background-color: #000;
+    }
+    /* Texto del brand y enlaces del menú en blanco */
+    .main-nav .navbar-brand,
+    .main-nav .nav-link {
+      color: #fff !important;
+    }
+    .main-nav .nav-link:hover {
+      color: #ccc !important;
+    }
+
+    /* Ajustes de altura para el carrusel */
+    .carousel-item {
+      height: 400px; /* Ajusta la altura a tu gusto */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    /* Sección de artículos (cards) */
+    .blog-cards .card {
+      border: 1px solid #ddd;
+      border-radius: 0;
+    }
+    .blog-cards .card img {
+      object-fit: cover;
+      height: 200px;
+    }
+
+    /* Sección de Newsletter */
+    .newsletter {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+    }
+    .footer-links a {
+      color: #000;
+      margin-right: 15px;
+    }
+    .social-icons a {
+      margin-right: 10px;
+      color: #000;
+    }
+    .cookies {
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior blanca -->
+  <div class="top-bar py-2">
+    <div class="container">
+      <!-- 
+        Distribuimos el contenido con justify-content-between para 
+        dejar "Español / Contacto" a la izquierda y "lupa / tienda" a la derecha,
+        como en Siroko.
+      -->
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span class="mr-3">Español</span>
+          <a href="#">Contacto</a>
+        </div>
+        <div>
+          <a href="#" class="mr-3">
+            <i class="fas fa-search"></i>
+          </a>
+          <button class="btn btn-store">Ir a la tienda</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin barra superior -->
+
+  <!-- Barra de navegación principal (negra) -->
+  <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+    <div class="container">
+      <!-- 
+        Logo a la izquierda. 
+        Para centrar el menú, usamos "justify-content-center" 
+        en la sección colapsable.
+      -->
+      <a class="navbar-brand" href="assets/images/ima20.jpg">Logo</a>
+      
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarContent" 
+        aria-controls="navbarContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div 
+        class="collapse navbar-collapse justify-content-center" 
+        id="navbarContent"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ciclismo de carretera</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ciclismo de montaña</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ciclismo indoor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ciclismo para mujeres</a>
+          </li>
+          <!-- Agrega más menús si lo deseas -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Fin barra de navegación -->
+
+  <!-- Carousel (slider de imágenes) -->
+  <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicadores (puntos) -->
+    <ol class="carousel-indicators">
+      <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#mainCarousel" data-slide-to="1"></li>
+      <li data-target="#mainCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Imágenes del carrusel -->
+    <div class="carousel-inner">
+      <div 
+        class="carousel-item active" 
+        style="background-image: url('assets/images/10.jpg');"
+      >
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Regalos Navideños Para Todos los Presupuestos</h2>
+          <p>Subtítulo de la imagen 1</p>
+        </div>
+      </div>
+      <div 
+        class="carousel-item" 
+        style="background-image: url('assets/images/10.jpg');"
+      >
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Título Imagen 2</h2>
+          <p>Subtítulo de la imagen 2</p>
+        </div>
+      </div>
+      <div 
+        class="carousel-item" 
+        style="background-image: url('assets/images/11.jpg');"
+      >
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Título Imagen 3</h2>
+          <p>Subtítulo de la imagen 3</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flechas de control (anterior / siguiente) -->
+    <a 
+      class="carousel-control-prev" 
+      href="#mainCarousel" 
+      role="button" 
+      data-slide="prev"
+    >
+      <span 
+        class="carousel-control-prev-icon" 
+        aria-hidden="true"
+      ></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a 
+      class="carousel-control-next" 
+      href="#mainCarousel" 
+      role="button" 
+      data-slide="next"
+    >
+      <span 
+        class="carousel-control-next-icon" 
+        aria-hidden="true"
+      ></span>
+      <span class="sr-only">Siguiente</span>
+    </a>
+  </div>
+  <!-- Fin Carousel -->
+
+  <!-- Contenido principal (Artículos) -->
+  <main class="container my-5">
+    <div class="row blog-cards">
+      <!-- Tarjeta 1 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img 
+            src="assets/images/10.jpg" 
+            class="card-img-top" 
+            alt="Imagen artículo 1"
+          >
+          <div class="card-body">
+            <h5 class="card-title">Maillot Térmico Siroko V4</h5>
+            <p class="card-text">
+              Descubre por qué es imprescindible para el entretiempo...
+            </p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta 2 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img 
+            src="assets/images/11.jpg" 
+            class="card-img-top" 
+            alt="Imagen artículo 2"
+          >
+          <div class="card-body">
+            <h5 class="card-title">Cómo cambiar las pastillas de una bici</h5>
+            <p class="card-text">
+              Guía rápida para ciclistas principiantes...
+            </p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Otra fila de artículos (ejemplo) -->
+    <div class="row blog-cards">
+      <!-- Tarjeta 3 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img 
+            src="assets/images/12.jpg" 
+            class="card-img-top" 
+            alt="Imagen artículo 3"
+          >
+          <div class="card-body">
+            <h5 class="card-title">Título Artículo 3</h5>
+            <p class="card-text">
+              Breve descripción o intro del artículo 3...
+            </p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta 4 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img 
+            src="assets/images/10.jpg" 
+            class="card-img-top" 
+            alt="Imagen artículo 4"
+          >
+          <div class="card-body">
+            <h5 class="card-title">Título Artículo 4</h5>
+            <p class="card-text">
+              Breve descripción o intro del artículo 4...
+            </p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Fin Contenido Principal -->
+
+  <!-- Sección de Newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <h3>¿Te gusta nuestro contenido?</h3>
+      <p>Suscríbete y recibe nuestra newsletter semanal.</p>
+      <form class="form-inline justify-content-center">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="email" class="sr-only">Email</label>
+          <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            placeholder="Ingresa tu email"
+          >
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">
+          Suscribirse
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- Fin Newsletter -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- Sección de enlaces -->
+        <div class="col-md-4 footer-links">
+          <h5>Enlaces</h5>
+          <a href="#">Contacto</a>
+          <a href="#">Preguntas Frecuentes</a>
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+        </div>
+        <!-- Redes sociales -->
+        <div class="col-md-4 text-center social-icons">
+          <h5>Síguenos</h5>
+          <a href="#" target="_blank">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+        </div>
+        <!-- Cookies y aviso legal -->
+        <div class="col-md-4 cookies">
+          <h5>Aviso de Cookies</h5>
+          <p>
+            Este sitio utiliza cookies para mejorar tu experiencia. 
+            <a href="#">Más información</a>
+          </p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col text-center">
+          <p class="mb-0">
+            &copy; 2025 Nombre de tu sitio. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Fin Footer -->
+
+  <!-- Scripts de Bootstrap y jQuery -->
+  <script 
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  ></script>
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>

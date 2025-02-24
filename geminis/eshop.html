@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Geminis - Carrito</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bootstrap CSS -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  />
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+ <!-- Estilos CSS personalizados -->
+ <style>
+    /* ===================== Hero Section (fondo e imagen) ===================== */
+    .hero-section {
+        position: relative;            /* para posicionar el texto absoluto */
+        height: 70vh;                  /* Ajusta a tu gusto (70vh, 80vh, etc.) */
+        background-color: #000;        /* Fondo negro en áreas no cubiertas por la imagen */
+        background-image: url("assets/images/ima20.jpg");
+        background-repeat: no-repeat;  
+        background-position: center;   
+        background-size: contain;      /* Muestra la imagen completa, con bandas negras laterales si sobra espacio */
+      }
+      
+      /* ===================== Texto sobre la imagen ===================== */
+      .hero-section > div {
+        position: absolute !important;
+        bottom: 2rem !important;
+        left: 2rem !important;
+        margin: 0 !important;
+        text-align: left !important;
+        transform: none !important; /* Por si .d-flex le aplicaba transform */
+        top: auto !important;       /* Eliminamos top de align-items-center */
+        z-index: 1;
+        color: #fff; /* O el color que quieras */
+      }
+      
+      /* Ajusta tamaño de tipografía (título y texto) */
+      .hero-section > div h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+      .hero-section > div p {
+        font-size: 1.2rem;
+      }
+      
+      /* ===================== Efectos en cards, etc. ===================== */
+      .card:hover {
+        transform: scale(1.02);
+        transition: all 0.3s ease;
+      }
+      .badge.bg-danger {
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+      
+        /* ======= Mega-menú general (primer nivel) ======= */
+        .dropdown-menu {
+          background-color: #333;
+          border: none;
+        }
+        /* Mostrar el mega-menú al hover en pantallas grandes */
+        @media (min-width: 992px) {
+          .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+          }
+          .navbar .dropdown-menu {
+            margin-top: 0; /* Eliminar salto al desplegar */
+          }
+        }
+        .dropdown-item {
+          color: #fff;
+        }
+        .dropdown-item:hover {
+          background-color: #444;
+        }
+        /* Íconos dentro del dropdown */
+        .dropdown-menu i {
+          color: #fff;
+        }
+        .dropdown-menu i:hover {
+          color: #f00;
+        }
+        /* Espaciado en cada item */
+        .dropdown-menu p {
+          margin-top: 10px;
+        }
+    
+        /* ======= Forzar mega-menú centrado ======= */
+        .nav-item.dropdown.position-static .dropdown-menu {
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .nav-item.dropdown.position-static .dropdown-menu .row {
+          justify-content: center;
+        }
+    
+        /* ======= Sub-submenú en otra fila horizontal ======= */
+        .dropdown-submenu {
+          /* Únicamente para aislar estilos del submenú. */
+        }
+        /* Segunda fila: oculto por defecto en desktop, se mostrará al hover */
+        .dropdown-submenu .sublevel-row {
+          display: none; /* Se activa al hover */
+        }
+    
+        /* En pantallas grandes, al hacer hover en “Lifestyle” -> mostrar submenú */
+        @media (min-width: 992px) {
+          .dropdown-submenu:hover .sublevel-row {
+            display: flex; /* Muestra la segunda fila en horizontal */
+          }
+        }
+        /*
+          NOTA: Hemos quitado position: absolute;
+          para que la fila aparezca “debajo” de la primera,
+          expandiendo el mega-menú hacia abajo, en lugar de un panel flotante.
+        */
+      </style>
+    </head>
+  
+
+</head>
+<body class="bg-light">
+  <!-- Barra superior (igual que index) -->
+  <div class="top-bar bg-white text-dark small py-2">
+    <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
+      <div class="mb-0">
+        Envío <strong>GRATIS</strong> en pedidos superiores a <strong>$2,750.00</strong>.
+        Devoluciones en monedero GEMINIS <strong>GRATIS</strong>
+      </div>
+      <a href="#" class="text-dark text-decoration-underline d-none d-md-inline">
+        <i class="bi bi-gift fs-5"></i> 
+        Tarjeta regalo digital
+      </a>
+    </div>
+  </div>
+
+  <!-- Navbar (igual que index) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="index.html">Geminis</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-between align-items-center"
+        id="navbarNav"
+      >
+        <!-- Menú principal (copiado de index) -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item dropdown position-static">
+            <a
+              class="nav-link dropdown-toggle text-uppercase mx-3"
+              href="#"
+              id="hombreDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Hombre
+            </a>
+            <div class="dropdown-menu w-100 p-3 shadow-lg">
+                aria-labelledby="hombreDropdown"
+                >
+                  <!-- Fila principal -->
+                  <div class="row text-center">
+                    <!-- Ciclismo -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-bicycle fs-1"></i>
+                        <p class="mb-0">Ciclismo</p>
+                      </a>
+                    </div>
+                    <!-- Esquí & Snowboard -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-snow fs-1"></i>
+                        <p class="mb-0">Esquí & Snowboard</p>
+                      </a>
+                    </div>
+    
+                    <!-- LIFESTYLE (tiene su submenú) -->
+                    <div class="col-auto mb-3 dropdown-submenu">
+                      <!-- Botón principal de Lifestyle -->
+                      <a
+                        href="#"
+                        class="dropdown-item dropdown-toggle"
+                        id="lifestyleDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="bi bi-person-lines-fill fs-1"></i>
+                        <p class="mb-0">Lifestyle</p>
+                      </a>
+                      <!-- SEGUNDA FILA (subnivel) -->  
+                      <div class="row text-center sublevel-row p-3">
+                        <!-- Novedades -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-star fs-1 text-success"></i>
+                            <p class="mb-0">Novedades</p>
+                          </a>
+                        </div>
+                        <!-- Ofertas -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-alarm fs-1 text-warning"></i>
+                            <p class="mb-0">Ofertas</p>
+                          </a>
+                        </div>
+                        <!-- Parkas y Abrigos -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-cloud fs-1"></i>
+                            <p class="mb-0">Parkas y Abrigos</p>
+                          </a>
+                        </div>
+                        <!-- Coach Jackets -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-journal-text fs-1"></i>
+                            <p class="mb-0">Coach Jackets</p>
+                          </a>
+                        </div>
+                        <!-- Sudaderas -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-bookmark fs-1"></i>
+                            <p class="mb-0">Sudaderas</p>
+                          </a>
+                        </div>
+                        <!-- Camisetas -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-tag fs-1"></i>
+                            <p class="mb-0">Camisetas</p>
+                          </a>
+                        </div>
+                        <!-- Iconic -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-eyeglasses fs-1"></i>
+                            <p class="mb-0">Iconic</p>
+                          </a>
+                        </div>
+                        <!-- X1 -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-eyeglasses fs-1"></i>
+                            <p class="mb-0">X1</p>
+                          </a>
+                        </div>
+                        <!-- Accesorios -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-bag fs-1"></i>
+                            <p class="mb-0">Accesorios</p>
+                          </a>
+                        </div>
+                      </div> <!-- /row sublevel-row -->
+                    </div> <!-- /Lifestyle -->
+    
+                    <!-- Gym & Training -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-dumbbell fs-1"></i>
+                        <p class="mb-0">Gym & Training</p>
+                      </a>
+                    </div>
+                    <!-- Adventure -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-tree fs-1"></i>
+                        <p class="mb-0">Adventure</p>
+                      </a>
+                    </div>
+                    <!-- Golf -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-golf fs-1"></i>
+                        <p class="mb-0">Golf</p>
+                      </a>
+                    </div>
+                    <!-- Collabs -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-people fs-1"></i>
+                        <p class="mb-0">Collabs</p>
+                      </a>
+                    </div>
+                  </div> <!-- /row principal -->
+                </div> <!-- /dropdown-menu HOMBRE -->
+              </li> <!-- /nav-item HOMBRE -->
+    
+              <!-- ========== MUJER (solo primer nivel) ========== -->
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle text-uppercase mx-3"
+                  href="#"
+                  id="mujerDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Mujer
+                </a>
+                <div
+                  class="dropdown-menu w-100 p-3 shadow-lg"
+                  aria-labelledby="mujerDropdown"
+                >
+                  <div class="row text-center">
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-bicycle fs-1"></i>
+                        <p class="mb-0">Ciclismo</p>
+                      </a>
+                    </div>
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-snow fs-1"></i>
+                        <p class="mb-0">Esquí & Snowboard</p>
+                      </a>
+                    </div>
+                    <!-- Más ítems a gusto... -->
+                  </div>
+                </div>
+              </li>
+    
+              <!-- ========== KIDS (solo primer nivel) ========== -->
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle text-uppercase mx-3"
+                  href="#"
+                  id="kidsDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Kids
+                </a>
+                <div
+                  class="dropdown-menu w-100 p-3 shadow-lg"
+                  aria-labelledby="kidsDropdown"
+                >
+                  <div class="row text-center">
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-bicycle fs-1"></i>
+                        <p class="mb-0">Ciclismo</p>
+                      </a>
+                    </div>
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-snow fs-1"></i>
+                        <p class="mb-0">Esquí & Snowboard</p>
+                      </a>
+                    </div>
+                    <!-- Más ítems a gusto... -->
+                  </div>
+                </div>
+              </li>
+            </ul><!-- /ul.navbar-nav -->
+         <!-- Botón Únete, iconos, etc. -->
+        <div class="d-flex align-items-center">
+          <a class="btn btn-outline-light px-3 py-1 me-3 text-uppercase" href="registro.html">Únete a Geminis</a>
+          <a class="nav-link text-white me-2" href="buscador.html"><i class="bi bi-search"></i></a>
+          <!-- Icono carrito: (ya estamos en el carrito, podrías dejarlo igual) -->
+          <a class="nav-link text-white me-2 position-relative" href="eshop.html">
+            <i class="bi bi-cart"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+          </a>
+          <a class="nav-link text-white me-2" href="#"><i class="bi bi-person"></i></a>
+        </div>
+      </div> 
+    </div>
+  </nav>
+
+  <!-- Contenido principal del carrito -->
+  <section class="container my-5">
+    <!-- Encabezado de carrito -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-uppercase">Tu Carrito</h2>
+      <p class="mb-0">Su carrito actualmente está vacío.</p>
+      <p class="text-muted">Envío gratuito en todas las compras a partir de $2,829</p>
+      <!-- Botón volver a la tienda -->
+      <a href="index.html" class="btn btn-primary">Volver a la tienda</a>
+    </div>
+    
+    <!-- Sección de “Estos productos también pueden interesarte” -->
+    <div class="text-center my-5">
+      <h3 class="text-uppercase fw-bold">Estos productos también pueden interesarte</h3>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <!-- Ejemplo de producto recomendado (1) -->
+      <div class="col">
+        <div class="card border-0 text-center">
+          <img src="assets/images/10.jpg" class="card-img-top" alt="Producto 1">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">SRX PRO ELITE</h5>
+            <p class="text-danger fw-bold m-0">
+              <del>$2,295</del> $1,062 (-50%)
+            </p>
+            <div class="badge bg-danger">CRAZY SALE -50%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 2 -->
+      <div class="col">
+        <div class="card border-0 text-center">
+          <img src="assets/images/11.jpg" class="card-img-top" alt="Producto 2">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">M2 MYSTIC</h5>
+            <p class="text-danger fw-bold m-0">
+              <del>$1,914</del> $1,062 (-45%)
+            </p>
+            <div class="badge bg-danger">CRAZY SALE -45%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 3 -->
+      <div class="col">
+        <div class="card border-0 text-center">
+          <img src="assets/images/12.jpg" class="card-img-top" alt="Producto 3">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">ASPEN</h5>
+            <p class="text-danger fw-bold m-0">
+              <del>$1,702</del> $849 (-50%)
+            </p>
+            <div class="badge bg-danger">CRAZY SALE -50%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 4 -->
+      <div class="col">
+        <div class="card border-0 text-center">
+          <img src="assets/images/10.jpg" class="card-img-top" alt="Producto 4">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">M2 ORIGIN</h5>
+            <p class="text-danger fw-bold m-0">
+              <del>$1,701</del> $849 (-50%)
+            </p>
+            <div class="badge bg-danger">CRAZY SALE -50%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Repite más productos si quieres -->
+    </div>
+  </section>
+
+  <!-- Footer (igual que index) -->
+  <footer class="bg-dark text-white py-4 text-center">
+    &copy; 2025 Geminis. Todos los derechos reservados.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
