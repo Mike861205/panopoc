@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarjeta Regalo Digital - Siroko</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+
+  <!-- Estilos personalizados -->
+  <style>
+    /* Fuente para asemejar estilo (opcional) */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Barra superior negra */
+    .top-bar {
+      background-color: #000;
+      color: #fff;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Navegación principal (Hombre, Mujer, Kids, etc.) */
+    .main-nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .nav-link {
+      color: #000 !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 1rem 0.75rem;
+    }
+    .nav-link:hover {
+      color: #666 !important;
+    }
+
+    /* Ajustes de logo en la cabecera */
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    /* Header derecho (Iniciar Sesión, Únete a Siroko) */
+    .header-buttons .btn {
+      margin: 0 0.5rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Sección de la Tarjeta Regalo */
+    .gift-card-section {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .gift-card-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .amount-buttons .btn {
+      min-width: 110px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Descripción */
+    .description-title {
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      border-top: 1px solid #ddd;
+      margin: 1.5rem 0;
+    }
+
+    /* Banner inferior amarillo */
+    .bottom-banner {
+      background-color: #ffd500;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f8f9fa;
+      padding: 1.5rem 0;
+    }
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome (versión free) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dyZ88mC6+KYr18o7R3FuRchcWY3JohMK6iUceYn1CwSFiqolLUCQ6/wNEXLVU9BsM6fkeBDd2PsR4fJoE6Kw+Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    </head>
+    
+    <body class="bg-light">
+          <!-- Top Info Bar (similar a Siroko) -->
+          <div class="top-bar bg-white text-dark small py-2">
+            <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
+              <div class="mb-0">
+                Envío <strong>GRATIS</strong> en pedidos superiores a <strong>$2,750.00</strong>.
+                Devoluciones en monedero PATOPOC <strong>GRATIS</strong>
+              </div>
+              <a href="tarjeta.html" class="text-dark text-decoration-underline d-none d-md-inline">
+                <i class="bi bi-gift fs-5"></i> 
+                Tarjeta regalo digital
+              </a>
+            </div>
+          </div>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+          <a class="navbar-brand fw-bold fs-4" href="index.html">Patopoc</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div
+            class="collapse navbar-collapse justify-content-between align-items-center"
+            id="navbarNav"
+          >
+            <!-- Menú principal -->
+            <ul class="navbar-nav mx-auto">
+              <!-- ========== HOMBRE ========== -->
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle text-uppercase mx-3"
+                  href="#"
+                  id="hombreDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Hombre
+                </a>
+                <!-- Mega-menú (primer nivel) -->
+                <div
+                  class="dropdown-menu w-100 p-3 shadow-lg"
+                  aria-labelledby="hombreDropdown"
+                >
+                  <!-- Fila principal -->
+                  <div class="row text-center">
+                    <!-- Ciclismo -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-bicycle fs-1"></i>
+                        <p class="mb-0">Ciclismo</p>
+                      </a>
+                    </div>
+                    <!-- Esquí & Snowboard -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-snow fs-1"></i>
+                        <p class="mb-0">Esquí & Snowboard</p>
+                      </a>
+                    </div>
+    
+                    <!-- LIFESTYLE (tiene su submenú) -->
+                    <div class="col-auto mb-3 dropdown-submenu">
+                      <!-- Botón principal de Lifestyle -->
+                      <a
+                        href="#"
+                        class="dropdown-item dropdown-toggle"
+                        id="lifestyleDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="bi bi-person-lines-fill fs-1"></i>
+                        <p class="mb-0">Lifestyle</p>
+                      </a>
+                      <!-- SEGUNDA FILA (subnivel) -->  
+                      <div class="row text-center sublevel-row p-3">
+                        <!-- Novedades -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-star fs-1 text-success"></i>
+                            <p class="mb-0">Novedades</p>
+                          </a>
+                        </div>
+                        <!-- Ofertas -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-alarm fs-1 text-warning"></i>
+                            <p class="mb-0">Ofertas</p>
+                          </a>
+                        </div>
+                        <!-- Parkas y Abrigos -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-cloud fs-1"></i>
+                            <p class="mb-0">Parkas y Abrigos</p>
+                          </a>
+                        </div>
+                        <!-- Coach Jackets -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-journal-text fs-1"></i>
+                            <p class="mb-0">Coach Jackets</p>
+                          </a>
+                        </div>
+                        <!-- Sudaderas -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-bookmark fs-1"></i>
+                            <p class="mb-0">Sudaderas</p>
+                          </a>
+                        </div>
+                        <!-- Camisetas -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-tag fs-1"></i>
+                            <p class="mb-0">Camisetas</p>
+                          </a>
+                        </div>
+                        <!-- Iconic -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-eyeglasses fs-1"></i>
+                            <p class="mb-0">Iconic</p>
+                          </a>
+                        </div>
+                        <!-- X1 -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-eyeglasses fs-1"></i>
+                            <p class="mb-0">X1</p>
+                          </a>
+                        </div>
+                        <!-- Accesorios -->
+                        <div class="col-auto mb-3">
+                          <a href="#" class="dropdown-item">
+                            <i class="bi bi-bag fs-1"></i>
+                            <p class="mb-0">Accesorios</p>
+                          </a>
+                        </div>
+                      </div> <!-- /row sublevel-row -->
+                    </div> <!-- /Lifestyle -->
+    
+                    <!-- Gym & Training -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-dumbbell fs-1"></i>
+                        <p class="mb-0">Gym & Training</p>
+                      </a>
+                    </div>
+                    <!-- Adventure -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-tree fs-1"></i>
+                        <p class="mb-0">Adventure</p>
+                      </a>
+                    </div>
+                    <!-- Golf -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-golf fs-1"></i>
+                        <p class="mb-0">Golf</p>
+                      </a>
+                    </div>
+                    <!-- Collabs -->
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-people fs-1"></i>
+                        <p class="mb-0">Collabs</p>
+                      </a>
+                    </div>
+                  </div> <!-- /row principal -->
+                </div> <!-- /dropdown-menu HOMBRE -->
+              </li> <!-- /nav-item HOMBRE -->
+    
+              <!-- ========== MUJER (solo primer nivel) ========== -->
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle text-uppercase mx-3"
+                  href="#"
+                  id="mujerDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Mujer
+                </a>
+                <div
+                  class="dropdown-menu w-100 p-3 shadow-lg"
+                  aria-labelledby="mujerDropdown"
+                >
+                  <div class="row text-center">
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-bicycle fs-1"></i>
+                        <p class="mb-0">Ciclismo</p>
+                      </a>
+                    </div>
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-snow fs-1"></i>
+                        <p class="mb-0">Esquí & Snowboard</p>
+                      </a>
+                    </div>
+                    <!-- Más ítems a gusto... -->
+                  </div>
+                </div>
+              </li>
+    
+              <!-- ========== KIDS (solo primer nivel) ========== -->
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle text-uppercase mx-3"
+                  href="#"
+                  id="kidsDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Kids
+                </a>
+                <div
+                  class="dropdown-menu w-100 p-3 shadow-lg"
+                  aria-labelledby="kidsDropdown"
+                >
+                  <div class="row text-center">
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-bicycle fs-1"></i>
+                        <p class="mb-0">Ciclismo</p>
+                      </a>
+                    </div>
+                    <div class="col-auto mb-3">
+                      <a href="#" class="dropdown-item">
+                        <i class="bi bi-snow fs-1"></i>
+                        <p class="mb-0">Esquí & Snowboard</p>
+                      </a>
+                    </div>
+                    <!-- Más ítems a gusto... -->
+                  </div>
+                </div>
+              </li>
+            </ul><!-- /ul.navbar-nav -->
+    
+            <!-- Botón Únete e Íconos a la derecha -->
+            <div class="d-flex align-items-center">
+              <a class="btn btn-outline-light px-3 py-1 me-3 text-uppercase" href="registro.html">Únete a Patopoc</a>
+              <a class="nav-link text-white me-2" href="buscador.html"><i class="bi bi-search"></i></a>
+              <a class="nav-link text-white me-2 position-relative" href="eshop.html">
+                <i class="bi bi-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  3
+                </span>
+              </a>
+              <a class="nav-link text-white me-2" href="sesion.html"><i class="bi bi-person"></i></a>
+            </div>
+          </div> <!-- /.collapse.navbar-collapse -->
+        </div> <!-- /.container -->
+      </nav> <!-- /nav -->
+    
+  <!-- Sección principal de la Tarjeta de Regalo -->
+  <div class="container gift-card-section">
+    <div class="row g-5">
+      <!-- Columna Izquierda: imagen de la tarjeta -->
+      <div class="col-md-6 text-center">
+        <!-- Sustituye esta imagen por la real de la tarjeta -->
+        <img
+          src="assets/images/12.jpg"
+          alt="Tarjeta Regalo Digital Siroko"
+          class="img-fluid"
+        />
+      </div>
+
+      <!-- Columna Derecha: detalles de la tarjeta -->
+      <div class="col-md-6">
+        <h2 class="gift-card-title">Tarjeta Regalo Digital - Bronze</h2>
+
+        <!-- Opciones de importe -->
+        <div class="amount-buttons d-flex flex-wrap gap-2 mb-4">
+          <button type="button" class="btn btn-outline-dark">$1,000.00</button>
+          <button type="button" class="btn btn-outline-dark">$2,000.00</button>
+          <button type="button" class="btn btn-outline-dark">$3,000.00</button>
+          <button type="button" class="btn btn-outline-dark">$4,000.00</button>
+          <button type="button" class="btn btn-outline-dark">$5,000.00</button>
+          <button type="button" class="btn btn-outline-dark">$6,000.00</button>
+        </div>
+
+        <p>
+          Para comprar una tarjeta regalo digital debes estar antes registrado/a.
+          Inicia sesión o únete ahora a Siroko para disfrutar de esta y otras ventajas.
+        </p>
+
+        <!-- Botones de acción -->
+        <div class="mb-4">
+          <a href="#" class="btn btn-dark me-2">Únete a Siroko</a>
+          <a href="#" class="btn btn-outline-dark">Iniciar Sesión</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Descripción del producto -->
+        <h3 class="description-title">Descripción del producto</h3>
+        <p><strong>Regala deporte, regala salud.</strong></p>
+        <p>
+          Con la Tarjeta Regalo Digital de Siroko, esa persona especial podrá elegir
+          entre una amplia gama de productos en nuestra tienda online.
+        </p>
+        <p>
+          Deberás indicar el correo electrónico del destinatario de la tarjeta, y unos minutos
+          después de la compra, el destinatario recibirá un correo electrónico con la Tarjeta
+          Regalo Digital que le has regalado, y las instrucciones detalladas sobre cómo canjearla.
+        </p>
+        <p>
+          Tú también recibirás un correo electrónico con la confirmación de la compra y los detalles,
+          y tendrás esta información accesible en tu zona de usuario.
+        </p>
+        <p>
+          Nuestra Tarjeta Regalo Digital no tiene fecha de vencimiento, puede canjearse en cualquier momento.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner inferior amarillo -->
+  <div class="bottom-banner">
+    ¿Eres una tienda y quieres ofrecer SIROKO a tus clientes?
+    <a href="#" class="text-decoration-underline">CONTÁCTANOS</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>© 2025 Siroko - Réplica de ejemplo</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
